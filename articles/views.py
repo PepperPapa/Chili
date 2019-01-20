@@ -8,4 +8,4 @@ def index(request):
     return render(request, 'articles/index.html', {'all_articles': all_articles})
 
 def new(request):
-    return(HttpResponse("create new article"))
+    return render(request, 'articles/new_article.html')

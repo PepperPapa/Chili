@@ -1,0 +1,73 @@
+
+body.bg-chili {
+    background-color: #f6f2ef;
+}
+
+.trix-container {
+    padding: 2em;
+    background-color: #fff;
+    border: none !important;
+    border-radius: 0.2em 0.2em 0 0;
+    box-shadow: 0 -1px 10px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1), 0 10px 30px #f3ece8;
+    min-height: 100vh;
+}
+
+.article.card-body {
+    flex: 0.9;
+}
+
+.trix-container .footer {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 1.5em;
+    padding-left: inherit;
+    margin: 1.5em -1rem 0;
+}
+
+textarea[name=article-title] {
+    padding: 0 0.5rem 0 0;
+    overflow-y: hidden;
+}
+
+.input {
+    transition: box-shadow 0.15s ease-in-out;
+    resize: none;
+}
+
+.input--full-width {
+    width: 100%;
+}
+
+.input--borderless {
+    background-color: rgba(255,255,255,0);
+    box-shadow: none !important;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+}
+
+.input--title {
+    line-height: inherit;
+}
+
+trix-editor {
+    border: none;
+    padding-top: 1.5em;
+}
+
+trix-editor.medium {
+    min-height: 22em;
+}
+
+trix-editor.formatted-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.trix-content {
+    line-height: 1.5;
+}
+
+trix-toolbar {
+    padding: 0.2em 0;
+}

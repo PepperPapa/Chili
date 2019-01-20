@@ -1,0 +1,3 @@
+Chili
+一个使用WYSIWYG编辑器trix的demo
+
