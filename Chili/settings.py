@@ -26,8 +26,8 @@ SECRET_KEY = 'psii)bgocj(gc(i!n4s)i1cy&*j!2zq5#8)1-m=ic5y0qc#mmx'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
     'localhost',
+    '192.168.31.200',
 ]
 
 
