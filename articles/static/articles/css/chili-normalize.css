@@ -91,3 +91,14 @@ trix-editor.formatted-content {
     height: 1.8em;
     width: 1.8em;
 }
+
+.article_attribute {
+    padding: 0.4em 0 0.4em 2em;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.formatted-content {
+    margin-top: 1.25em !important;
+    margin-bottom: 1.25em !important;
+}

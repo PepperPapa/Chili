@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Article
 
@@ -9,3 +9,7 @@ def index(request):
 
 def new(request):
     return render(request, 'articles/new_article.html')
+
+def detail(request, article_id):
+    article = get_object_or_404(Article, pk = article_id)
+    return render(request, 'articles/article_detail.html', {'article': article})
