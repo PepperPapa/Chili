@@ -1,19 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Article</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  {% load static %}
+  <script defer src="{% static 'articles/js/fontawesome-all.js' %}"></script>
+  <!-- BootStrap CSS -->
+  <link rel="stylesheet" href="{% static 'articles/css/bootstrap.css' %}"/>
+
+  <link rel="stylesheet" href="{% static 'articles/css/trix.css' %}"/>
+  <link rel="stylesheet" href="{% static 'articles/css/chili-normalize.css' %}"/>
+  <script src="{% static 'articles/js/trix.js' %}"></script>
+  <link rel="shortcut icon" href="{% static 'articles/images/favicon.ico' %}" type="image/vnd.microsoft.icon" />
+  <link rel="icon" href="{% static 'articles/images/favicon.ico' %}" type="image/vnd.microsoft.icon" />
+  <title>Chili--好用有用的项目管理应用</title>
 </head>
-<body>
-    {% for article in all_articles %}
-    <h1>{{ article.headline }}</h1>
-    <div>
-        <div>{{ article.content }}</div>
-        <div>{{ article.pub_date }}</div>
-        <div>{{ article.update_date }}</div>
-    </div>
-    {% endfor %}
+<body class="bg-chili">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">Chili</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="/articles">主页 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">私聊</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">通知</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">活动</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查找</button>
+        </form>
+      </div>
+    </nav>
+
+    <article class="trix-container article-board">
+        <header class="article-header__new">
+            <label><a class="btn btn-success" href="/articles/new">+写文章</a></label>
+            <h1 class="meta-title">文章列表</h1>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                所有文章
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">python</a>
+                <a class="dropdown-item" href="#">web前端</a>
+                <a class="dropdown-item" href="#">计算机科学</a>
+                <a class="dropdown-item" href="#">其他</a>
+              </div>
+            </div>
+        </header>
+        <ul class="list-unstyled article-board__content">
+          {% for article in all_articles %}
+          <li class="media article-board__row article-board__overflow">
+            <img src="{% static 'articles/images/avatar-64-x1.png' %}" class="mr-3 avatar" alt="...">
+            <div class="media-body messages-table__what">
+              <a class="" href="/articles/{{article.id}}">
+                <h6 class="mt-0 mb-1">{{ article.headline }}</h6>
+                <span class="txt--uncolor">zhongxin • 
+                  <span>{{ article.pub_date }} </span>
+                </span>
+                — {{ article.content }}
+              </a>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+    </article>      
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'articles/js/jquery-3.3.1.js' %}"></script>
+  <script src="{% static 'articles/js/popper.min.js' %}"></script>
+  <script src="{% static 'articles/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

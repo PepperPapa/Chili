@@ -4,7 +4,7 @@ body.bg-chili {
 }
 
 .trix-container {
-    padding: 2em;
+    padding: 4rem 8rem;;
     background-color: #fff;
     border: none !important;
     border-radius: 0.2em 0.2em 0 0;
@@ -19,7 +19,7 @@ body.bg-chili {
 .trix-container .footer {
     border-top: 1px solid #e5e5e5;
     padding-top: 1.5em;
-    padding-left: inherit;
+    padding-left: 1.5em;
     margin: 1.5em 0;
 }
 
@@ -101,4 +101,62 @@ trix-editor.formatted-content {
 .formatted-content {
     margin-top: 1.25em !important;
     margin-bottom: 1.25em !important;
+}
+
+.article-board {
+    padding-left: 6em;
+    padding-right: 6em;
+}
+
+.article-board header
+{
+    padding-top: 2em;
+    padding-bottom: 0.625em;
+    border-bottom: 3px solid #283c46;
+    margin-left: -2em;
+    margin-right: -2em;
+}
+
+.article-board .meta-title {
+    text-align: center;
+}
+
+.article-board h1 {
+    font-size: 1.6em;
+}
+
+.article-board__content {
+    padding: 0 2rem;
+    margin-top: 2em !important;
+}
+
+.article-board__row {
+    margin-bottom: 1em;
+}   
+
+.article-board__overflow {
+    max-height: 6em;
+    overflow: hidden;
+}
+
+.article-board__row .avatar {
+    border-radius: 50%;
+}
+
+.txt--uncolor {
+    color: #877457;
+}
+
+.messages-table__what a {
+    color: inherit;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.article-header__new {
+    display: flex;
+}
+
+.article-header__new h1 {
+    flex: 1;
 }
