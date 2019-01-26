@@ -1,3 +1,6 @@
+.hidden {
+    display: none;
+}
 
 body.bg-chili {
     background-color: #f6f2ef;

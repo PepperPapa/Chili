@@ -6,11 +6,18 @@
   <div class="card-body chili-article">
     <h1 class="card-title">
       <textarea autofocus="autofocus" name="article-title" id="" rows="1" placeholder="输入标题..." 
-      class="input input--full-width input--borderless input--title"></textarea>
+      class="input input--full-width input--borderless input--title">{{ article.headline }}</textarea>
     </h1>
-    <p class="card-text">
+    <div class="card-text">
       <trix-editor class="trix-content" placeholder="写点什么..."></trix-editor>
-    </p>
+      <!-- 将文章内容事先放入到一个隐藏tag中，然后由前端js代码进行处理，
+      之所以这么做是因为trix框架会自动清理其中的内容 -->
+      <div class="hidden" id="article__content">
+        {% autoescape off %}
+        {{ article.content }}
+        {% endautoescape %}
+      </div>
+    </div>
   </div>
   <footer class="footer">
     <a href="#" class="btn btn-success">发布文章</a>

@@ -17,6 +17,10 @@ def index(request):
 def new(request):
     return render(request, 'articles/new_article.html')
 
+def edit(request, article_id):
+    article = get_object_or_404(Article, pk = article_id)
+    return render(request, 'articles/edit_article.html', {'article': article})
+
 def detail(request, article_id):
     article = get_object_or_404(Article, pk = article_id)
     return render(request, 'articles/article_detail.html', {'article': article})
