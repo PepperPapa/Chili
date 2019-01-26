@@ -177,13 +177,11 @@ trix-editor.formatted-content {
     height: 2.4rem;
     padding: 0 !important;
     border-radius: 50%;
-    border: 1px solid #d9d9d9;
     background-image: url(../images/overflow-icon.svg);
     background-repeat: no-repeat;
     background-position: center center !important;
     background-size: 1.2rem auto;
     text-indent: -999em;
-    background-color: transparent !important;
 }
 
 .btn--icon.dropdown-toggle::after {
@@ -201,7 +199,5 @@ trix-editor.formatted-content {
 }
 
 .chili-article__menu .btn--type {
-    border: 1px solid #d9d9d9;
     border-radius: 2.25em !important;
-    background-color: transparent !important;
 }
