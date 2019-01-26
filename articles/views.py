@@ -11,7 +11,7 @@ def index(request):
     for article in all_articles:
         article.content = re.sub(r'<\/?[a-z]+>', '', article.content)   #替换html tag为空内容
         article.content = re.sub(r'<\s+', ' ', article.content) #多个空格替换为一个空格
-        article.content = article.content[:60]
+        article.content = article.content[:40]
     return render(request, 'articles/index.html', {'all_articles': all_articles})
 
 def new(request):

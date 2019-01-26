@@ -163,3 +163,45 @@ trix-editor.formatted-content {
 .article-header__new h1 {
     flex: 1;
 }
+
+.chili-toolbar {
+    position: relative;
+    left: 100%;
+    bottom: 100%;
+    margin-top: -3rem;
+    margin-left: 3rem;
+}
+
+.btn--icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0 !important;
+    border-radius: 50%;
+    border: 1px solid #d9d9d9;
+    background-image: url(../images/overflow-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center !important;
+    background-size: 1.2rem auto;
+    text-indent: -999em;
+    background-color: transparent !important;
+}
+
+.btn--icon.dropdown-toggle::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border: none !important;
+}
+
+.chili-article__menu {
+    margin: 0.25em 0;
+}
+
+.chili-article__menu .btn--type {
+    border: 1px solid #d9d9d9;
+    border-radius: 2.25em !important;
+    background-color: transparent !important;
+}
