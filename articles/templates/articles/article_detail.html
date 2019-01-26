@@ -1,78 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  {% load static %}
-  <script defer src="{% static 'articles/js/fontawesome-all.js' %}"></script>
-  <!-- BootStrap CSS -->
-  <link rel="stylesheet" href="{% static 'articles/css/bootstrap.css' %}"/>
-
-  <link rel="stylesheet" href="{% static 'articles/css/trix.css' %}"/>
-  <link rel="stylesheet" href="{% static 'articles/css/chili-normalize.css' %}"/>
-  <script src="{% static 'articles/js/trix.js' %}"></script>
-  <link rel="shortcut icon" href="{% static 'articles/images/favicon.ico' %}" type="image/vnd.microsoft.icon" />
-  <link rel="icon" href="{% static 'articles/images/favicon.ico' %}" type="image/vnd.microsoft.icon" />
-  <title>Chili--好用有用的项目管理应用</title>
-</head>
-<body class="bg-chili">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">Chili</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="/articles">主页 <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">私聊</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">通知</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">活动</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查找</button>
-        </form>
+{% extends "articles/base.html" %}
+{% load static %}
+{% block title %}Chili--好用有用的项目管理应用{% endblock %}
+{% block content %}
+<div class="card trix-container">
+  <div class="card-body chili-article">
+    <header>
+      <h1 class="card-title">
+        {{ article.headline }}
+      </h1>
+      <div class="article_attribute">
+        <div>作者： 钟鑫</div>
+        <div>发布于 {{ article.pub_date }}</div>
       </div>
-    </nav>
-
-    <div class="card trix-container">
-      <div class="card-body chili-article">
-        <header>
-          <h1 class="card-title">
-            {{ article.headline }}
-          </h1>
-          <div class="article_attribute">
-            <div>作者： 钟鑫</div>
-            <div>发布于 {{ article.pub_date }}</div>
-          </div>
-        </header>
-        
-        <section class="trix-content formatted-content">
-          {% autoescape off %}
-          {{ article.content }}
-          {% endautoescape %}
-        </section>
-      </div>
-    </div>      
+    </header>
+    
+    <section class="trix-content formatted-content">
+      {% autoescape off %}
+      {{ article.content }}
+      {% endautoescape %}
+    </section>
   </div>
-  
-  
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="{% static 'articles/js/jquery-3.3.1.js' %}"></script>
-  <script src="{% static 'articles/js/popper.min.js' %}"></script>
-  <script src="{% static 'articles/js/bootstrap.min.js' %}"></script>
-</body>
-</html>
+</div>      
+</div>
+{% endblock %}
