@@ -1,7 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from .models import Article
 import re
+
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+
+from .models import Article
+from .forms import ArticleForm
 
 # Create your views here.
 def index(request):
@@ -15,7 +18,19 @@ def index(request):
     return render(request, 'articles/index.html', {'all_articles': all_articles})
 
 def new(request):
-    return render(request, 'articles/new_article.html')
+    if request.method == 'POST':
+        print(request.method)
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['article_title']
+            content = form.cleaned_data['article_content']
+            # print(title, content)
+            db_new_article = Article.objects.create(headline = title,
+                                                   content = content)
+            db_new_article.save()  
+            return HttpResponseRedirect('/articles/' + str(db_new_article.id))
+    else:
+        return render(request, 'articles/new_article.html')
 
 def edit(request, article_id):
     article = get_object_or_404(Article, pk = article_id)

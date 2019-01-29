@@ -26,7 +26,7 @@ body.bg-chili {
     margin: 1.5em 0;
 }
 
-textarea[name=article-title] {
+textarea[name=article_title] {
     padding: 0 0.5rem 0 0;
     overflow-y: hidden;
 }
@@ -38,6 +38,7 @@ textarea[name=article-title] {
 
 .input--full-width {
     width: 100%;
+    overflow-y: hidden;
 }
 
 .input--borderless {

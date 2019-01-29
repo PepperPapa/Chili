@@ -7,9 +7,9 @@ class Article(models.Model):
     # 内容
     content = models.TextField()
     # 发表日志
-    update_date = models.DateTimeField()
+    pub_date = models.DateTimeField(auto_now_add=True, null = True)
     # 更新日期
-    pub_date = models.DateTimeField()
+    update_date = models.DateTimeField(blank = True, null = True)
 
     def __str__(self):
         return self.headline
