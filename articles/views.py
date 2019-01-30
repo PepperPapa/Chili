@@ -1,4 +1,5 @@
 import re
+import datetime
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -19,7 +20,6 @@ def index(request):
 
 def new(request):
     if request.method == 'POST':
-        print(request.method)
         form = ArticleForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data['article_title']
@@ -27,14 +27,27 @@ def new(request):
             # print(title, content)
             db_new_article = Article.objects.create(headline = title,
                                                    content = content)
-            db_new_article.save()  
             return HttpResponseRedirect('/articles/' + str(db_new_article.id))
     else:
         return render(request, 'articles/new_article.html')
 
 def edit(request, article_id):
     article = get_object_or_404(Article, pk = article_id)
-    return render(request, 'articles/edit_article.html', {'article': article})
+    print(article)
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        print(request.method)
+        if form.is_valid():
+            title = form.cleaned_data['article_title']
+            content = form.cleaned_data['article_content']
+            # print(title, content)
+            article.headline = title
+            article.content = content
+            article.update_date = datetime.datetime.now()
+            article.save()  
+            return HttpResponseRedirect('/articles/{0}/'.format(str(article.id)))
+    else:
+        return render(request, 'articles/edit_article.html', {'article': article})
 
 def detail(request, article_id):
     article = get_object_or_404(Article, pk = article_id)

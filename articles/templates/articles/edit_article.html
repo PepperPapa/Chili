@@ -2,10 +2,11 @@
 {% load static %}
 {% block title %}Chili--好用有用的项目管理应用{% endblock %}
 {% block content %}
-<div class="card trix-container">
+<form class="card trix-container" action="/articles/{{ article.id }}/edit/" method="POST">
+  {% csrf_token %}
   <div class="card-body chili-article">
     <h1 class="card-title">
-      <textarea autofocus="autofocus" name="article-title" id="" rows="1" placeholder="输入标题..." 
+      <textarea autofocus="autofocus" name="article_title" id="" rows="1" placeholder="输入标题..." 
       class="input input--full-width input--borderless input--title">{{ article.headline }}</textarea>
     </h1>
     <div class="card-text">
@@ -20,7 +21,7 @@
     </div>
   </div>
   <footer class="footer">
-    <a href="#" class="btn btn-success">发布文章</a>
+    <input type="submit" class="btn btn-success" value="发布文章" />
   </footer>
-</div>      
+</form>      
 {% endblock %}
