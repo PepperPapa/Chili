@@ -6,4 +6,5 @@ urlpatterns = [
     path('new/', views.new, name="new"),
     path('<int:article_id>/', views.detail, name="detail"),
     path('<int:article_id>/edit/', views.edit, name="edit"),
+    path('uploadFile/', views.upload_file, name="upload_file"),
 ]

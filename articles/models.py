@@ -11,5 +11,10 @@ class Article(models.Model):
     # 更新日期
     update_date = models.DateTimeField(blank = True, null = True)
 
+    class Meta:
+        ordering = ['-pub_date']
+
     def __str__(self):
         return self.headline
+
+    

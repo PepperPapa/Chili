@@ -1,5 +1,6 @@
 import re
 import datetime
+import os
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -52,3 +53,15 @@ def edit(request, article_id):
 def detail(request, article_id):
     article = get_object_or_404(Article, pk = article_id)
     return render(request, 'articles/article_detail.html', {'article': article})
+
+def upload_file(request):
+    if request.method == "POST":
+        myFile = request.FILES.get("upload_file", None)    
+        if not myFile:
+            return HttpResponse("no files upload!")    
+        destination = open(os.path.join(r"articles\static\articles\upload", 
+                                myFile.name),'wb+')    # 打开特定的文件进行二进制的写操作
+        for chunk in myFile.chunks():      # 分块写入文件
+            destination.write(chunk)
+        destination.close()
+        return HttpResponse("upload over!")

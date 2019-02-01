@@ -2,6 +2,12 @@
 {% load static %}
 {% block title %}Chili--好用有用的项目管理应用{% endblock %}
 {% block content %}
+<form enctype="multipart/form-data" method="post" action="/articles/uploadFile/">
+  {% csrf_token %}
+  <input type="file" name="upload_file" />
+  <br/>
+  <input type="submit" value="upload"/>
+</form>
 <!-- /articles/new/ 对应views.py中的new方法 -->
 <form class="card trix-container" action="/articles/new/" method="POST">
   {% csrf_token %}
