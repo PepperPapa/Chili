@@ -8,3 +8,8 @@ Chili
   4. bootstrap4
   5. WYSIWYG编辑器trix
 
+* 应用截图   
+  
+![截图1](./articles/static/articles/images/screenshot_001.png)
+![截图1](./articles/static/articles/images/screenshot_002.png)
+![截图1](./articles/static/articles/images/screenshot_003.png)
