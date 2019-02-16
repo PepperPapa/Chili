@@ -1,7 +1,9 @@
 $(document).ready(function() {
     // 初始化
     var ele_trix_input = document.getElementById("trix-input-1");
-    ele_trix_input['name'] = 'article_content';
+    if (ele_trix_input) {
+        ele_trix_input['name'] = 'article_content';
+    }
     
     // articles/5/edit
     // 文章edit页面首先获取服务器传会来的内容，然后写入到trix-editor tag元素中

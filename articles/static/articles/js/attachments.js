@@ -1,5 +1,6 @@
 (function() {
-  var HOST = "https://d13txem1unpe48.cloudfront.net/"
+  var HOST = "http://localhost:8000/articles/uploadFile/"
+  var BASE_URL = "http://localhost:8000/static/articles/upload/"
 
   addEventListener("trix-attachment-add", function(event) {
     if (event.attachment.file) {
@@ -32,10 +33,10 @@
     })
 
     xhr.addEventListener("load", function(event) {
-      if (xhr.status == 204) {
+      if (xhr.status == 204 || xhr.status == 200) {
         var attributes = {
-          url: HOST + key,
-          href: HOST + key + "?content-disposition=attachment"
+          url: BASE_URL + key,
+          href: BASE_URL + key + "?content-disposition=attachment"
         }
         successCallback(attributes)
       }
@@ -48,7 +49,7 @@
     var date = new Date()
     var day = date.toISOString().slice(0,10)
     var name = date.getTime() + "-" + file.name
-    return [ "tmp", day, name ].join("/")
+    return name
   }
 
   function createFormData(key, file) {

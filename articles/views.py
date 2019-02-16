@@ -3,10 +3,12 @@ import datetime
 import os
 
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Article
 from .forms import ArticleForm
+from Chili.settings import MEDIA_ROOT, BASE_DIR
 
 # Create your views here.
 def index(request):
@@ -54,14 +56,13 @@ def detail(request, article_id):
     article = get_object_or_404(Article, pk = article_id)
     return render(request, 'articles/article_detail.html', {'article': article})
 
+@csrf_exempt
 def upload_file(request):
-    if request.method == "POST":
-        myFile = request.FILES.get("upload_file", None)    
-        if not myFile:
-            return HttpResponse("no files upload!")    
-        destination = open(os.path.join(r"articles\static\articles\upload", 
-                                myFile.name),'wb+')    # 打开特定的文件进行二进制的写操作
-        for chunk in myFile.chunks():      # 分块写入文件
+    file_obj = request.FILES.get('file')
+    if file_obj:   # 处理附件上传到方法
+        file_name = request.POST['key']
+        destination = open(os.path.join(BASE_DIR, MEDIA_ROOT, file_name),'wb+')    # 打开特定的文件进行二进制的写操作
+        for chunk in file_obj.chunks():      # 分块写入文件
             destination.write(chunk)
         destination.close()
-        return HttpResponse("upload over!")
+        return JsonResponse({'size': 'ok'})
